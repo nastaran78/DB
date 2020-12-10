@@ -1,8 +1,8 @@
-import BookEntity from '../../db/book.entity';
+import BookEntity from '../db/book.entity';
 import CreateBookDto from './dto/create-book.dto';
-import UserEntity from '../../db/user.entity';
+import UserEntity from '../db/user.entity';
 import { createQueryBuilder, getConnection } from 'typeorm';
-import GenreEntity from '../../db/genre.entity';
+import GenreEntity from '../db/genre.entity';
 
 export class BooksService {
 

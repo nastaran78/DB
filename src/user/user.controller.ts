@@ -1,10 +1,25 @@
 import { Body, Controller, Get, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { UserServices } from './user.service';
 import CreateUserDto from './dto/create-user.dto';
+import {ApiResponse,ApiBearerAuth, ApiQuery } from '@nestjs/swagger';
 
 @Controller('users')
 export class UserController {
   constructor(private readonly usersServices: UserServices) {}
+
+  @ApiResponse({ status: 200})
+  
+  @ApiQuery({
+      name: 'name',
+      required: true, 
+      type: String
+  }) 
+
+  @ApiQuery({
+      name: 'books',
+      required: false, 
+      type: Array
+  }) 
 
 //'postUser()' will handle the creating of new User
   @Post('post')
