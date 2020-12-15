@@ -32,8 +32,6 @@ export class UserController {
 //'postUser()' will handle the creating of new User
   
   @Post('post')
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   postUser( @Body() user: CreateUserDto) {
     return this.usersServices.insert(user);
   }
