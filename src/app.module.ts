@@ -13,6 +13,10 @@ import GenreEntity from './db/genre.entity';
 import { APP_GUARD } from '@nestjs/core/constants';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { TodoModule } from './todo/todo.module';
+import LabelEntity from './db/label.entity';
+import ItemEntity from './db/item.entity';
+import CategoryEntity from './db/category.entity';
+import TaskEntity from './db/task.entity';
 
 
 @Module({
@@ -25,10 +29,10 @@ import { TodoModule } from './todo/todo.module';
 
   //   TypeOrmModule.forRoot(),
   // ],
-  imports: [AuthModule, JwtAuthGuard,UserModule ,
+  imports: [AuthModule, JwtAuthGuard,UserModule , TodoModule,
         BooksModule, 
         GenreModule, TypeOrmModule.forFeature(
-        [UserEntity, BookEntity , GenreEntity],
+        [UserEntity, BookEntity , GenreEntity, LabelEntity, TaskEntity, ItemEntity, CategoryEntity],
         ),
         TypeOrmModule.forRoot(),
         ],
